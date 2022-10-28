@@ -3,6 +3,7 @@ package br.com.alura.mvc.mudi.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+//@Entity
 public class Pedido {
 
     private String nomeProduto;
