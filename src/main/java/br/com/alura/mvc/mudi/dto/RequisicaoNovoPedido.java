@@ -7,11 +7,11 @@ import javax.validation.constraints.NotBlank;
 public class RequisicaoNovoPedido {
 
 
-    @NotBlank
+    @NotBlank(message = "O campo obrigatório")
     private String nomeProduto;
-    @NotBlank
+    @NotBlank(message = "O campo obrigatório")
     private String urlProduto;
-    @NotBlank
+    @NotBlank(message = "O campo obrigatório")
     private String urlImagem;
     private String descricao;
 
