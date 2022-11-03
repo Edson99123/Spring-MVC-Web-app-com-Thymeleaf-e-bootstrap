@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HelloController {
-
-    @GetMapping("/hello")
-    public String hello(Model model){
-        model.addAttribute("nome", "Edson Sales");
-        return "Hello";
-    }
+	
+	@GetMapping("/hello")
+	public String hello(Model model) {
+		model.addAttribute("nome", "Mundo");
+		return "hello"; 
+	}
 }
