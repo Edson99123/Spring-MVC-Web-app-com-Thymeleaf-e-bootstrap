@@ -21,7 +21,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
             .anyRequest().authenticated()
         .and()
-            .httpBasic();
+        .formLogin(form -> form
+                .loginPage("/login")
+                .permitAll()
+        );
+
     }
 
     @Bean
