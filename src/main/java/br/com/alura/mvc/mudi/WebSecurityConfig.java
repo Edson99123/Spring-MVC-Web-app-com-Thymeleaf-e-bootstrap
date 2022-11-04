@@ -18,15 +18,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .authorizeRequests()
+            .authorizeRequests()
             .anyRequest().authenticated()
-        .and()
-        .formLogin(form -> form
-                .loginPage("/login")
-                .permitAll()
-        );
-
+            .and()
+            .formLogin(form -> form
+                    .loginPage("/login")
+                    .permitAll()
+            )
+            .logout(logout -> logout.logoutUrl("/logout"));
     }
+
 
     @Bean
     public UserDetailsService userDetailsService() {
