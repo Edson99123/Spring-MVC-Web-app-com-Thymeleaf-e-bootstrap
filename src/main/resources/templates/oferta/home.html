@@ -29,7 +29,7 @@
 
 						<div class="col-12 col-sm-4">
 							<div>
-								<img class="img-thumbnail" v-bind:src="pedido.urlImagem" src="" />
+								<img class="img-thumbnail" v-bind:src="pedido.urlImagem"/>
 							</div>
 						</div>
 					</div>
@@ -43,41 +43,18 @@
 					{
 					el : '#ofertas',
 					data : {
-						pedidos : [
-								{
-									"nomeProduto": "Notbook",
-									"valorNegociado": null,
-									"dataDaEntrega": null,
-									"urlProduto": "sem ",
-									"urlImagem": "nao",
-									"descricao": "sd",
-									"status": "AGUARDANDO"
-								},
-								{
-									"nomeProduto": "teste de novo pediso",
-									"valorNegociado": null,
-									"dataDaEntrega": null,
-									"urlProduto": "url do pedido",
-									"urlImagem": "url da imahem",
-									"descricao": "descrição do pedido",
-									"status": "AGUARDANDO"
-								},
-								{
-									"nomeProduto": "nome d",
-									"valorNegociado": null,
-									"dataDaEntrega": null,
-									"urlProduto": "asd",
-									"urlImagem": "dsfs",
-									"descricao": "dsf",
-									"status": "AGUARDANDO"
-								}
-								]
+						pedidos : []
+					},
+					mounted ()  {
+						axios
+							.get('http://localhost:8080/api/pedidos/aguardando')
+							.then(response => (this.pedidos = response.data))
 					}
 				});
 			}
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 		
-
 	</body>
 </html>
