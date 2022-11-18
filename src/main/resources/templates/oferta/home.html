@@ -1,9 +1,9 @@
 <html>
 	<head th:replace="~{base :: head}"></head>
-	<body>	
+	<body onload="onLoad()">	
 		<div th:replace="~{base :: logo}"></div>
 
-		<div class="container">
+		<div class="container" id="ofertas">
 			<div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
 		
 			<nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
@@ -49,5 +49,18 @@
 				</div>
 			</div>
 		</div>
+
+		<script>
+			function onLoad(){
+				var app = new Vue({
+					el : "#ofertas",
+					data :{
+						pedidos : []
+					}
+				});
+			}
+		</script>
+		<script src="https://cdn.jsdelivr.net/cpm/vue/dist/vue.js"></script>
+
 	</body>
 </html>
