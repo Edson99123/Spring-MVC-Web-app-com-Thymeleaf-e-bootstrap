@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -20,9 +21,17 @@ public class Pedido {
 	private String urlImagem;
 	private String descricao;
 
+	@Enumerated(EnumType.STRING)
+	private StatusPedido status;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	private User user;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
+	private List<Oferta> ofertas;
+
+
 
 	public User getUser() {
 		return user;
@@ -31,9 +40,6 @@ public class Pedido {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	@Enumerated(EnumType.STRING)
-	private StatusPedido status;
 
 	public String getNomeProduto() {
 		return nomeProduto;
@@ -91,4 +97,11 @@ public class Pedido {
 		this.status = status;
 	}
 
+	public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
+	}
 }
