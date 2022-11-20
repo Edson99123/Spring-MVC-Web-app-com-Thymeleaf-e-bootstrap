@@ -18,18 +18,18 @@ import br.com.alura.mvc.mudi.repository.PedidoRepository;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
-
+	
 	@Autowired
 	private PedidoRepository pedidoRepository;
-
-	@GetMapping()
+	
+	@GetMapping
 	public String home(Model model, Principal principal) {
-
 		Sort sort = Sort.by("dataDaEntrega").descending();
-		PageRequest paginacao =  PageRequest.of(0, 10, sort);
-
+		PageRequest paginacao = PageRequest.of(0, 10, sort);
+		
 		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE, paginacao);
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 	}
+	
 }
