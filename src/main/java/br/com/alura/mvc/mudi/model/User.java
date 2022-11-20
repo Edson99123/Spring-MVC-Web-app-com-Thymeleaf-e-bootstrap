@@ -1,7 +1,6 @@
 package br.com.alura.mvc.mudi.model;
 
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private List<Pedido> pedidos;
 
-    /**Gets and sets*/
+    /** Gets and sets */
     public String getUsername() {
         return username;
     }

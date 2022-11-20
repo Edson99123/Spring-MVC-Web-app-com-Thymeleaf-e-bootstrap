@@ -7,8 +7,7 @@ import java.time.LocalDate;
 @Entity
 public class Oferta {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private BigDecimal valor;
     private LocalDate dataDaEntrega;
@@ -37,7 +36,7 @@ public class Oferta {
         return dataDaEntrega;
     }
 
-    public void setDataDaEntrega(LocalDate dataDaEntrega) {
+    public void setDataDaEntrega     (LocalDate dataDaEntrega) {
         this.dataDaEntrega = dataDaEntrega;
     }
 
